@@ -1,17 +1,23 @@
 // ==UserScript==
 // @name         AccessHub JSON editor
+// @namespace    https://openuserjs.org/users/mato-meciar
+// @copyright    2019, mato-meciar (https://openuserjs.org/users/mato-meciar)
 // @version      0.2.2
-// @namespace    https://greasyfork.org/users/326979
-// @description  try to take over the world!
-// @author       Vincek
-// @homepageURL  https://gist.githubusercontent.com/mato-meciar/3da45264035088fdcdede215702997e7/
-// @updateURL    https://gist.githubusercontent.com/mato-meciar/3da45264035088fdcdede215702997e7/raw/AccessHub%2520JSON%2520editor.js
-// @downloadURL  https://gist.githubusercontent.com/mato-meciar/3da45264035088fdcdede215702997e7/raw/AccessHub%2520JSON%2520editor.js
-// @supportURL   https://gist.githubusercontent.com/mato-meciar/3da45264035088fdcdede215702997e7/
+// @description  Provides a clickable button for editing connections in better editor
+// @author       Martin Meciar
+// @license      MIT
+// @homepageURL  https://github.com/mato-meciar/ah-scripts
+// @updateURL    https://raw.githubusercontent.com/mato-meciar/ah-scripts/master/AccessHubJSONeditor.js
+// @downloadURL  https://raw.githubusercontent.com/mato-meciar/ah-scripts/master/AccessHubJSONeditor.js
+// @supportURL   https://github.com/mato-meciar/ah-scripts
 // @match        *.idaccesshub.com/ECM/jbpmworkflowmanagement/showrequestdetails/*
 // @grant        none
 // @run-at       document-end
 // ==/UserScript==
+
+// ==OpenUserJS==
+// @author mato-meciar
+// ==/OpenUserJS==
 
 (function() {
     'use strict';
