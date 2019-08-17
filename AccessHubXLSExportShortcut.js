@@ -7,8 +7,8 @@
 // @author       Martin Meciar
 // @license      MIT
 // @homepageURL  https://github.com/mato-meciar/ah-scripts
-// @updateURL    https://raw.githubusercontent.com/mato-meciar/ah-scripts/master/AccessHubConnectionDetail.js
-// @downloadURL  https://raw.githubusercontent.com/mato-meciar/ah-scripts/master/AccessHubConnectionDetail.js
+// @updateURL    https://raw.githubusercontent.com/mato-meciar/ah-scripts/master/AccessHubXLSExportShortcut.js
+// @downloadURL  https://raw.githubusercontent.com/mato-meciar/ah-scripts/master/AccessHubXLSExportShortcut.js
 // @supportURL   https://github.com/mato-meciar/ah-scripts
 // @match        */ECM/analyticsConfig/runtimeanalytics/*
 // @match        */ECM/analyticsHistoryES/*
