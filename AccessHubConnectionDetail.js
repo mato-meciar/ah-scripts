@@ -7,7 +7,7 @@
 // @homepageURL  https://github.com/mato-meciar/ah-scripts
 // @updateURL    https://raw.githubusercontent.com/mato-meciar/ah-scripts/master/AccessHubConnectionDetail.js
 // @downloadURL  https://raw.githubusercontent.com/mato-meciar/ah-scripts/master/AccessHubConnectionDetail.js
-// @supportURL   https://github.com/mato-meciar/ah-scripts
+// @supportURL   https://greasyfork.org/en/forum/post/discussion?script=388817&locale=en
 // @match        *.idaccesshub.com/ECM/jbpmworkflowmanagement/showrequestdetails/*
 // @grant        none
 // @run-at       document-end
