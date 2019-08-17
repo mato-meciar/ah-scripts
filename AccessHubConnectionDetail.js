@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         AccessHub Connection Detail
-// @version      0.1.2
+// @version      0.1.3
 // @namespace    https://greasyfork.org/users/326979
 // @description  try to take over the world!
 // @author       Martin Meciar
