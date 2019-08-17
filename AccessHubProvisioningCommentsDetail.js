@@ -1,17 +1,24 @@
 // ==UserScript==
 // @name         AccessHub Provisioning Comments Detail
+// @namespace    https://openuserjs.org/users/mato-meciar
+// @copyright    2019, mato-meciar (https://openuserjs.org/users/mato-meciar)
 // @version      0.3.2
-// @namespace    https://greasyfork.org/users/326979
-// @description  try to take over the world!
+// @description  Provides a clickable provisioning comments detail for pending & completed tasks
 // @author       Martin Meciar
-// @homepageURL  https://gist.githubusercontent.com/mato-meciar/668e787f23d9d5ba934a2b2778e8970a/
-// @updateURL    https://gist.githubusercontent.com/mato-meciar/668e787f23d9d5ba934a2b2778e8970a/raw/AccessHub%2520Provisioning%2520Comments%2520Detail.js
-// @downloadURL  https://gist.githubusercontent.com/mato-meciar/668e787f23d9d5ba934a2b2778e8970a/raw/AccessHub%2520Provisioning%2520Comments%2520Detail.js
-// @supportURL   https://gist.githubusercontent.com/mato-meciar/668e787f23d9d5ba934a2b2778e8970a/
-// @match        *.idaccesshub.com/ECM/jbpmworkflowmanagement/showrequestdetails/*
+// @license      MIT
+// @homepageURL  https://github.com/mato-meciar/ah-scripts
+// @updateURL    https://raw.githubusercontent.com/mato-meciar/ah-scripts/master/AccessHubConnectionDetail.js
+// @downloadURL  https://raw.githubusercontent.com/mato-meciar/ah-scripts/master/AccessHubConnectionDetail.js
+// @supportURL   https://github.com/mato-meciar/ah-scripts
+// @match        *.idaccesshub.com/ECM/workflowmanagement/completetasklist*
+// @match        *.idaccesshub.com/ECM/workflowmanagement/pendingtasklist*
 // @grant        none
 // @run-at       document-end
 // ==/UserScript==
+
+// ==OpenUserJS==
+// @author mato-meciar
+// ==/OpenUserJS==
 
 // prepare and inject the script into the page
 $(document).ready(function()
