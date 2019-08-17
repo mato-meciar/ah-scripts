@@ -4,10 +4,10 @@
 // @namespace    https://greasyfork.org/users/326979
 // @description  try to take over the world!
 // @author       Martin Meciar
-// @homepageURL  https://gist.githubusercontent.com/mato-meciar/4f46dc3718925edf70a95e6c8eb78f8b/
-// @updateURL    https://gist.githubusercontent.com/mato-meciar/4f46dc3718925edf70a95e6c8eb78f8b/raw/AccessHub%2520Connection%2520Detail.js
-// @downloadURL  https://gist.githubusercontent.com/mato-meciar/4f46dc3718925edf70a95e6c8eb78f8b/raw/AccessHub%2520Connection%2520Detail.js
-// @supportURL   https://gist.githubusercontent.com/mato-meciar/4f46dc3718925edf70a95e6c8eb78f8b/
+// @homepageURL  https://github.com/mato-meciar/ah-scripts
+// @updateURL    https://raw.githubusercontent.com/mato-meciar/ah-scripts/master/AccessHubConnectionDetail.js
+// @downloadURL  https://raw.githubusercontent.com/mato-meciar/ah-scripts/master/AccessHubConnectionDetail.js
+// @supportURL   https://github.com/mato-meciar/ah-scripts
 // @match        *.idaccesshub.com/ECM/jbpmworkflowmanagement/showrequestdetails/*
 // @grant        none
 // @run-at       document-end
