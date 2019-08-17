@@ -1,18 +1,23 @@
 // ==UserScript==
 // @name         AccessHub Connection Status Sort
+// @namespace    https://openuserjs.org/users/mato-meciar
+// @copyright    2019, mato-meciar (https://openuserjs.org/users/mato-meciar)
 // @version      0.1.1
-// @namespace    https://greasyfork.org/users/326979
-// @description  try to take over the world!
+// @description  Enables sorting of connections by their status
 // @author       Martin Meciar
-// @homepageURL  https://gist.githubusercontent.com/mato-meciar/3eedbd7856709fbefaee94e2a8bec360/
-// @updateURL    https://gist.githubusercontent.com/mato-meciar/3eedbd7856709fbefaee94e2a8bec360/raw/AccessHub%2520Connection%2520Status%2520Sort.js
-// @downloadURL  https://gist.githubusercontent.com/mato-meciar/3eedbd7856709fbefaee94e2a8bec360/raw/AccessHub%2520Connection%2520Status%2520Sort.js
-// @supportURL   https://gist.githubusercontent.com/mato-meciar/3eedbd7856709fbefaee94e2a8bec360/
+// @license      MIT
+// @homepageURL  https://github.com/mato-meciar/ah-scripts
+// @updateURL    https://raw.githubusercontent.com/mato-meciar/ah-scripts/master/AccessHubConnectionStatusSort.js
+// @downloadURL  https://raw.githubusercontent.com/mato-meciar/ah-scripts/master/AccessHubConnectionStatusSort.js
+// @supportURL   https://github.com/mato-meciar/ah-scripts
 // @match        *.idaccesshub.com/ECM/jbpmworkflowmanagement/showrequestdetails/*
 // @grant        none
 // @run-at       document-end
 // ==/UserScript==
 
+// ==OpenUserJS==
+// @author mato-meciar
+// ==/OpenUserJS==
 
 // remove the original script
 document.querySelector("#tab_1-1 > div > div.portlet-body > script").remove();
