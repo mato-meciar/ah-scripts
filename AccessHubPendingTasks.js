@@ -1,17 +1,23 @@
 // ==UserScript==
 // @name         AccessHub Pending Tasks
+// @namespace    https://openuserjs.org/users/mato-meciar
+// @copyright    2019, mato-meciar (https://openuserjs.org/users/mato-meciar)
 // @version      0.3.1
-// @namespace    https://greasyfork.org/users/326979
-// @description  try to take over the world!
+// @description  Provides a clickable link to list of pending tasks for opened Security System
 // @author       Martin Meciar
-// @homepageURL  https://gist.githubusercontent.com/mato-meciar/f78a2c2b654a591326c16904531e1b70/
-// @updateURL    https://gist.githubusercontent.com/mato-meciar/f78a2c2b654a591326c16904531e1b70/raw/AccessHub%2520Pending%2520Tasks.js
-// @downloadURL  https://gist.githubusercontent.com/mato-meciar/f78a2c2b654a591326c16904531e1b70/raw/AccessHub%2520Pending%2520Tasks.js
-// @supportURL   https://gist.githubusercontent.com/mato-meciar/f78a2c2b654a591326c16904531e1b70/
-// @match        *.idaccesshub.com/ECM/jbpmworkflowmanagement/showrequestdetails/*
+// @license      MIT
+// @homepageURL  https://github.com/mato-meciar/ah-scripts
+// @updateURL    https://raw.githubusercontent.com/mato-meciar/ah-scripts/master/AccessHubPendingTasks.js
+// @downloadURL  https://raw.githubusercontent.com/mato-meciar/ah-scripts/master/AccessHubPendingTasks.js
+// @supportURL   https://github.com/mato-meciar/ah-scripts
+// @match        *.idaccesshub.com/ECM/securitysystems/show/*
 // @grant        none
 // @run-at       document-end
 // ==/UserScript==
+
+// ==OpenUserJS==
+// @author mato-meciar
+// ==/OpenUserJS==
 
 (function() {
     'use strict';
