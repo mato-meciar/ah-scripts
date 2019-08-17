@@ -1,17 +1,23 @@
 // ==UserScript==
 // @name         AccessHub Zloba
+// @namespace    https://openuserjs.org/users/mato-meciar
+// @copyright    2019, mato-meciar (https://openuserjs.org/users/mato-meciar)
 // @version      0.4.3
-// @namespace    https://greasyfork.org/users/326979
-// @description  try to take over the world!
+// @description  Re-enables the Wizard functionality for creating/editing REST connections
 // @author       Martin Meciar
-// @homepageURL  https://gist.githubusercontent.com/mato-meciar/24cf13a285a2a9bf98a31eaa376ee251/
-// @updateURL    https://gist.githubusercontent.com/mato-meciar/24cf13a285a2a9bf98a31eaa376ee251/raw/AccessHub%2520Zloba.js
-// @downloadURL  https://gist.githubusercontent.com/mato-meciar/24cf13a285a2a9bf98a31eaa376ee251/raw/AccessHub%2520Zloba.js
-// @supportURL   https://gist.githubusercontent.com/mato-meciar/24cf13a285a2a9bf98a31eaa376ee251/
-// @match        *.idaccesshub.com/ECM/jbpmworkflowmanagement/showrequestdetails/*
+// @license      MIT
+// @homepageURL  https://github.com/mato-meciar/ah-scripts
+// @updateURL    https://raw.githubusercontent.com/mato-meciar/ah-scripts/master/AccessHubZloba.js
+// @downloadURL  https://raw.githubusercontent.com/mato-meciar/ah-scripts/master/AccessHubZloba.js
+// @supportURL   https://github.com/mato-meciar/ah-scripts
+// @match        *.idaccesshub.com/ECM/ecmConfig/addnewconnection*
 // @grant        none
 // @run-at       document-end
 // ==/UserScript==
+
+// ==OpenUserJS==
+// @author mato-meciar
+// ==/OpenUserJS==
 
 // prepare and inject the script into the page
 $(document).ready(function()
