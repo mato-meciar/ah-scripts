@@ -10,7 +10,7 @@
 // @updateURL    https://raw.githubusercontent.com/mato-meciar/ah-scripts/master/AccessHubConnectionStatusSort.js
 // @downloadURL  https://raw.githubusercontent.com/mato-meciar/ah-scripts/master/AccessHubConnectionStatusSort.js
 // @supportURL   https://github.com/mato-meciar/ah-scripts
-// @match        *.idaccesshub.com/ECM/jbpmworkflowmanagement/showrequestdetails/*
+// @match        *.idaccesshub.com/ECM/ecmConfig/externalconfig*
 // @grant        none
 // @run-at       document-end
 // ==/UserScript==
