@@ -1,17 +1,24 @@
 // ==UserScript==
 // @name         AccessHub XLS Export Shortcut
+// @namespace    https://openuserjs.org/users/mato-meciar
+// @copyright    2019, mato-meciar (https://openuserjs.org/users/mato-meciar)
 // @version      0.2
-// @namespace    https://greasyfork.org/users/326979
-// @description  try to take over the world!
+// @description  Provides a shortcut to XLS Export button
 // @author       Martin Meciar
-// @homepageURL  https://gist.githubusercontent.com/mato-meciar/46f400ff48284ea69025ec63f884edcf/
-// @updateURL    https://gist.githubusercontent.com/mato-meciar/46f400ff48284ea69025ec63f884edcf/raw/AccessHub%2520XLS%2520Export%2520Shortcut.js
-// @downloadURL  https://gist.githubusercontent.com/mato-meciar/46f400ff48284ea69025ec63f884edcf/raw/AccessHub%2520XLS%2520Export%2520Shortcut.js
-// @supportURL   https://gist.githubusercontent.com/mato-meciar/46f400ff48284ea69025ec63f884edcf/
-// @match        *.idaccesshub.com/ECM/jbpmworkflowmanagement/showrequestdetails/*
+// @license      MIT
+// @homepageURL  https://github.com/mato-meciar/ah-scripts
+// @updateURL    https://raw.githubusercontent.com/mato-meciar/ah-scripts/master/AccessHubConnectionDetail.js
+// @downloadURL  https://raw.githubusercontent.com/mato-meciar/ah-scripts/master/AccessHubConnectionDetail.js
+// @supportURL   https://github.com/mato-meciar/ah-scripts
+// @match        */ECM/analyticsConfig/runtimeanalytics/*
+// @match        */ECM/analyticsHistoryES/*
 // @grant        none
 // @run-at       document-end
 // ==/UserScript==
+
+// ==OpenUserJS==
+// @author mato-meciar
+// ==/OpenUserJS==
 
 if (/\/analyticsConfig\//.test (location.pathname)){
     (function() {
