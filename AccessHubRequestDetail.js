@@ -1,17 +1,23 @@
 // ==UserScript==
 // @name         AccessHub Request Detail
+// @namespace    https://openuserjs.org/users/mato-meciar
+// @copyright    2019, mato-meciar (https://openuserjs.org/users/mato-meciar)
 // @version      0.4.4
-// @namespace    https://greasyfork.org/users/326979
-// @description  try to take over the world!
+// @description  Provides a clickable button for tasks detailswhen on a request info page
 // @author       Martin Meciar
-// @homepageURL  https://gist.githubusercontent.com/mato-meciar/4080cf002230507fe73ba47f55ba2146/
-// @updateURL    https://gist.githubusercontent.com/mato-meciar/4080cf002230507fe73ba47f55ba2146/raw/AccessHub%2520Request%2520Detail.js
-// @downloadURL  https://gist.githubusercontent.com/mato-meciar/4080cf002230507fe73ba47f55ba2146/raw/AccessHub%2520Request%2520Detail.js
-// @supportURL   https://gist.githubusercontent.com/mato-meciar/4080cf002230507fe73ba47f55ba2146/
+// @license      MIT
+// @homepageURL  https://github.com/mato-meciar/ah-scripts
+// @updateURL    https://raw.githubusercontent.com/mato-meciar/ah-scripts/master/AccessHubRequestDetail.js
+// @downloadURL  https://raw.githubusercontent.com/mato-meciar/ah-scripts/master/AccessHubRequestDetail.js
+// @supportURL   https://github.com/mato-meciar/ah-scripts
 // @match        *.idaccesshub.com/ECM/jbpmworkflowmanagement/showrequestdetails/*
 // @grant        none
 // @run-at       document-end
 // ==/UserScript==
+
+// ==OpenUserJS==
+// @author mato-meciar
+// ==/OpenUserJS==
 
 // prepare and inject the script into the page
 $(document).ready(function()
