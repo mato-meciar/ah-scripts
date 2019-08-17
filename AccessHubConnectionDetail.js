@@ -10,7 +10,7 @@
 // @updateURL    https://raw.githubusercontent.com/mato-meciar/ah-scripts/master/AccessHubConnectionDetail.js
 // @downloadURL  https://raw.githubusercontent.com/mato-meciar/ah-scripts/master/AccessHubConnectionDetail.js
 // @supportURL   https://github.com/mato-meciar/ah-scripts
-// @match        *.idaccesshub.com/ECM/jbpmworkflowmanagement/showrequestdetails/*
+// @match        *.idaccesshub.com/ECM/securitysystems/list*
 // @grant        none
 // @run-at       document-end
 // ==/UserScript==
