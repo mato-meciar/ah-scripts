@@ -1,9 +1,11 @@
 // ==UserScript==
 // @name         AccessHub Connection Detail
+// @namespace    https://openuserjs.org/users/mato-meciar
+// @copyright    2019, mato-meciar (https://openuserjs.org/users/mato-meciar)
 // @version      0.1.3
-// @namespace    https://greasyfork.org/users/326979
-// @description  try to take over the world!
+// @description  Provides a clickable link to connections straight from Sec. Systems list page
 // @author       Martin Meciar
+// @license      MIT
 // @homepageURL  https://github.com/mato-meciar/ah-scripts
 // @updateURL    https://raw.githubusercontent.com/mato-meciar/ah-scripts/master/AccessHubConnectionDetail.js
 // @downloadURL  https://raw.githubusercontent.com/mato-meciar/ah-scripts/master/AccessHubConnectionDetail.js
@@ -12,6 +14,10 @@
 // @grant        none
 // @run-at       document-end
 // ==/UserScript==
+
+// ==OpenUserJS==
+// @author mato-meciar
+// ==/OpenUserJS==
 
 // prepare and inject the script into the page
 $(document).ready(function() {
