@@ -2,7 +2,7 @@
 // @name         AccessHub XLS Export Shortcut
 // @namespace    https://openuserjs.org/users/mato-meciar
 // @copyright    2019, mato-meciar (https://openuserjs.org/users/mato-meciar)
-// @version      0.2
+// @version      0.2.1
 // @description  Provides a shortcut to XLS Export button
 // @author       Martin Meciar
 // @license      MIT
