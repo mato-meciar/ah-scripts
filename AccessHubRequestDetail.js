@@ -2,8 +2,8 @@
 // @name         AccessHub Request Detail
 // @namespace    https://openuserjs.org/users/mato-meciar
 // @copyright    2019, mato-meciar (https://openuserjs.org/users/mato-meciar)
-// @version      0.4.4
-// @description  Provides a clickable button for tasks detailswhen on a request info page
+// @version      0.4.5
+// @description  Provides a clickable button for tasks details when on a request info page
 // @author       Martin Meciar
 // @license      MIT
 // @homepageURL  https://github.com/mato-meciar/ah-scripts
