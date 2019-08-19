@@ -2,7 +2,7 @@
 // @name         AccessHub Request Detail
 // @namespace    https://openuserjs.org/users/mato-meciar
 // @copyright    2019, mato-meciar (https://openuserjs.org/users/mato-meciar)
-// @version      0.5
+// @version      0.5.1
 // @description  Provides a clickable button for tasks details when on a request info page
 // @author       Martin Meciar
 // @license      MIT
@@ -58,7 +58,7 @@ function showPreview(taskIDList) {
   var runtime = 'false'
   var sqlAnalytics = 'true'
 
-  completepath = '/ECM/analyticsConfigES/detailspreview'
+  completepath = '/ECM/analyticsConfig/detailspreview'
 
   $.ajax({
     async: true,
