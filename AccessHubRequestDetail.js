@@ -2,7 +2,7 @@
 // @name         AccessHub Request Detail
 // @namespace    https://openuserjs.org/users/mato-meciar
 // @copyright    2019, mato-meciar (https://openuserjs.org/users/mato-meciar)
-// @version      0.4.5
+// @version      0.5
 // @description  Provides a clickable button for tasks details when on a request info page
 // @author       Martin Meciar
 // @license      MIT
@@ -20,6 +20,8 @@
 // ==/OpenUserJS==
 
 // prepare and inject the script into the page
+
+let numOfTasks
 $(document).ready(function()
 {
     var s = document.createElement("script");
@@ -46,67 +48,62 @@ function getWordsBetweenCurlies(str) {
     //results = [...new Set(results)]  //SD-2370 This is not a systax error it looping through logic in grails to Create array of unique set data. Browser will understand this
     return results;
 }
+var returnDataGlob
 function showPreview(taskIDList) {
-    var analyticsQryVal = "";
-    var externalConnection = "";
-    analyticsQryVal =
-        "select taskkey as 'Task Key', provisioningcomments as 'Provisioning Comments', taskdate as 'Create Date', updatedate as 'Update Date', CONCAT(TIMESTAMPDIFF(DAY, taskdate, updatedate), 'd, ', TIMESTAMPDIFF(HOUR, taskdate, updatedate)%24, 'h, ', TIMESTAMPDIFF(MINUTE, taskdate, updatedate)%60, 'min, ', TIMESTAMPDIFF(SECOND, taskdate, updatedate)%60, 's')  as 'Time to Complete', source as 'Source' from arstasks where taskkey in (" + taskIDList + ")";
-    var runtime = "false";
-    var sqlAnalytics = "true";
+  var analyticsQryVal =
+    "select taskkey as 'Task Key', provisioningcomments as 'Provisioning Comments', taskdate as 'Create Date', updatedate as 'Update Date', CONCAT(TIMESTAMPDIFF(DAY, taskdate, updatedate), 'd, ', TIMESTAMPDIFF(HOUR, taskdate, updatedate)%24, 'h, ', TIMESTAMPDIFF(MINUTE, taskdate, updatedate)%60, 'min, ', TIMESTAMPDIFF(SECOND, taskdate, updatedate)%60, 's') as 'Time to Complete', source as 'Source' from arstasks where taskkey in (" +
+    taskIDList +
+    ')'
+  var externalConnection = ''
+  var runtime = 'false'
+  var sqlAnalytics = 'true'
 
-    console.log("inside the else block of details preview");
-    let completepath = "/ECM/analyticsConfig/detailspreview";
-    console.log(
-        "analyticsQryVal :" +
-        analyticsQryVal +
-        " runtime :" +
-        runtime +
-        " sqlAnalytics :" +
-        sqlAnalytics +
-        " externalConnection :" +
-        externalConnection
-    );
+  completepath = '/ECM/analyticsConfigES/detailspreview'
 
-    $.ajax({
-        async: true,
-        url: completepath,
-        type: "post",
-        dataType: "html",
-        data: {
-            analyticsQry: analyticsQryVal,
-            runtime: runtime,
-            sqlAnalytics: sqlAnalytics,
-            externalConnection: externalConnection
-        },
-        success: function (returnData) {
-            $(".opened-dialogs").dialog("close");
+  $.ajax({
+    async: true,
+    url: completepath,
+    type: 'post',
+    dataType: 'html',
+    data: {
+      analyticsQry: analyticsQryVal,
+      runtime: runtime,
+      sqlAnalytics: sqlAnalytics,
+      externalConnection: externalConnection
+    },
+    success: function(returnData) {
+      returnData = returnData.replace(/aLengthMenu.*.\\n.*.\\n.*.\\n.*/, 'aLengthMenu\": [[10], [10]],')
+      returnData = returnData.replace(/iDisplayLength.*/, 'iDisplayLength\": 10,')
+      returnDataGlob = returnData
+      $('.opened-dialogs').dialog('close')
 
-            $('<div class="opened-dialogs">')
-                .html("loading...")
-                .dialog({
-                    position: ["center", 70],
-                    open: function () {
-                        $(this).html(returnData);
-                        $(".ui-widget-overlay").css("background", "black"); //write background color change code here
-                    },
-                    close: function (event, ui) {
-                        $(this).remove();
-                    },
+      $('<div class="opened-dialogs">')
+        .html('loading...')
+        .dialog({
+          position: ['center', 70],
+          open: function() {
+            $(this).html(returnData)
+            $('.ui-widget-overlay').css('background', 'black') //write background color change code here
+          },
+          close: function(event, ui) {
+            $(this).remove()
+          },
 
-                    title: "TEST",
-                    minWidth: 1200,
-                    modal: true,
-                    draggable: false,
-                    resizable: true,
-                    show: { effect: "fade" },
-                    hide: { effect: "fade" },
-                    width: 1800,
-                    dialogClass: "ui-dialog-osx"
-                });
-        },
-        error: function (e) { }
-    });
+          title: '',
+          minWidth: 1200,
+          modal: true,
+          draggable: false,
+          resizable: false,
+          show: { effect: 'fade' },
+          hide: { effect: 'fade' },
+          width: 1600,
+          dialogClass: 'ui-dialog-osx'
+        })
+    },
+    error: function(e) {}
+  })
 }
+
 `;
     $("head").append(s);
 });
@@ -121,11 +118,28 @@ function waitForElementToDisplay(selector, time) {
             let element = $(`#\\#scroller1 > tbody:nth-child(2) > tr:nth-child(${i}) > td:nth-child(1)`)[0]
             let taskID = element.innerHTML
             taskIDList.push(parseInt(taskID))
-            //element.innerHTML = `<button class="btn purple" type="button" id="yui-gen${i}-button" onclick="showPreview(${taskID})"><i class="icon-eye-open"></i> ${taskID}</button>`
         }
-        let element = $('#\\#scroller1 > thead:nth-child(1) > tr:nth-child(1) > th:nth-child(1)')[0]
-        if (element) {
-            element.innerHTML = `<button class="btn purple" type="button" id="yui-gen1-button" onclick="showPreview('${taskIDList.join(', ')}')"><i class="icon-eye-open"></i> Task ID</button>`
+
+        const tasksChunks = chunkArray(taskIDList, 10)
+
+        const table = $('#ui-tabs-1')[0]
+        if (table) {
+            for (let i = 0; i < tasksChunks.length; i++) {
+                const chunk = tasksChunks[i]
+                let b = document.createElement('button')
+                b.setAttribute("class", "btn purple")
+                b.setAttribute("type", "button")
+                b.setAttribute("id", `yui-gen${i+1}-button`)
+                b.setAttribute("onclick", `showPreview('${chunk.join(', ')}')`)
+                let low = 1 + (i * 10)
+                let high = (i + 1) * 10
+                b.innerHTML = `<i class="icon-eye-open"></i> [${low} - ${high}]`
+                table.appendChild(b)
+
+                let s = document.createElement('span')
+                s.innerHTML = '&nbsp;'
+                table.appendChild(s)
+            }
         }
     }
     else {
@@ -150,3 +164,12 @@ mutationObserver.observe(document.getElementById('ui-tabs-1'), {
     characterDataOldValue: false,
 });
 
+function chunkArray(myArray, chunk_size){
+    var results = [];
+
+    while (myArray.length) {
+        results.push(myArray.splice(0, chunk_size));
+    }
+
+    return results;
+}
