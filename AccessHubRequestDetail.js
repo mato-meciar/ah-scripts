@@ -2,7 +2,7 @@
 // @name         AccessHub Request Detail
 // @namespace    https://openuserjs.org/users/mato-meciar
 // @copyright    2019, mato-meciar (https://openuserjs.org/users/mato-meciar)
-// @version      0.5.1
+// @version      0.5.2
 // @description  Provides a clickable button for tasks details when on a request info page
 // @author       Martin Meciar
 // @license      MIT
@@ -109,43 +109,82 @@ function showPreview(taskIDList) {
 });
 
 // wait for the table data to load, then add details button
-function waitForElementToDisplay(selector, time) {
-    if(!document.querySelector(selector) || document.querySelector(selector) != null) {
-        let i = 1
-        let max = $('#\\#scroller1 > tbody:nth-child(2) > tr > td:nth-child(1)').length
-        let taskIDList = []
-        for (i; i <= max; i++) {
-            let element = $(`#\\#scroller1 > tbody:nth-child(2) > tr:nth-child(${i}) > td:nth-child(1)`)[0]
-            let taskID = element.innerHTML
-            taskIDList.push(parseInt(taskID))
-        }
+function waitForElementToDisplay(selector, time, type) {
+    if (type && type === 'approval') {
+        if(document.querySelector(selector)) {
+            const approvalTasksOrig = $('.ui-tabs-nav')[0].children
+            if (approvalTasksOrig.length > 0) {
+                let approvalTasks = []
+                let max
+                if (approvalTasksOrig[approvalTasksOrig.length - 1].innerText === 'Tasks') {
+                    max = approvalTasksOrig.length - 1
+                } else {
+                    max = approvalTasksOrig.length
+                }
 
-        const tasksChunks = chunkArray(taskIDList, 10)
+                for (let i = 0; i < max; i++) {
+                    approvalTasks.push(approvalTasksOrig[i])
+                }
 
-        const table = $('#ui-tabs-1')[0]
-        if (table) {
-            for (let i = 0; i < tasksChunks.length; i++) {
-                const chunk = tasksChunks[i]
-                let b = document.createElement('button')
-                b.setAttribute("class", "btn purple")
-                b.setAttribute("type", "button")
-                b.setAttribute("id", `yui-gen${i+1}-button`)
-                b.setAttribute("onclick", `showPreview('${chunk.join(', ')}')`)
-                let low = 1 + (i * 10)
-                let high = (i + 1) * 10
-                b.innerHTML = `<i class="icon-eye-open"></i> [${low} - ${high}]`
-                table.appendChild(b)
+                let lastApprovalTask = approvalTasks[approvalTasks.length - 1]
+                let approvalsOrig = lastApprovalTask.children[0]
+                let tmp = window.location.pathname.split('/')
+                const workflow = tmp[tmp.length - 1]
+                let approvals = approvalsOrig.innerText
+                approvals = approvals.replace(' Task', '')
+                let reqID = approvalsOrig.innerHTML
+                let info = document.createElement('i')
+                info.setAttribute('class', 'icon-info-sign')
+                info.setAttribute('style', 'vertical-align: middle;')
+                info.setAttribute('href', 'javascript:;')
+                info.setAttribute('onclick', `openLinkapp('/ECM/jbpmworkflowmanagement/showrequestdetails','${workflow}','${approvals}')`)
 
-                let s = document.createElement('span')
-                s.innerHTML = '&nbsp;'
-                table.appendChild(s)
+                approvalsOrig.append(info)
             }
         }
-    }
-    else {
-        setTimeout(function() {
-            waitForElementToDisplay(selector, time);
-        }, time);
+        else {
+            setTimeout(function() {
+                waitForElementToDisplay(selector, time, 'approval');
+            }, time);
+        }
+    } else if (!type) {
+        if(document.querySelector(selector)) {
+            let i = 1
+            let max = $('#\\#scroller1 > tbody:nth-child(2) > tr > td:nth-child(1)').length
+            let taskIDList = []
+            for (i; i <= max; i++) {
+                let element = $(`#\\#scroller1 > tbody:nth-child(2) > tr:nth-child(${i}) > td:nth-child(1)`)[0]
+                let taskID = element.innerHTML
+                taskIDList.push(parseInt(taskID))
+            }
+
+            const tasksChunks = chunkArray(taskIDList, 10)
+
+            const table = $('#ui-tabs-1')[0]
+            if (table) {
+                for (let i = 0; i < tasksChunks.length; i++) {
+                    const chunk = tasksChunks[i]
+                    let b = document.createElement('button')
+                    b.setAttribute("class", "btn purple")
+                    b.setAttribute("type", "button")
+                    b.setAttribute("id", `yui-gen${i+1}-button`)
+                    b.setAttribute("onclick", `showPreview('${chunk.join(', ')}')`)
+                    let low = 1 + (i * 10)
+                    let high = (i + 1) * 10
+                    b.innerHTML = `<i class="icon-eye-open"></i> [${low} - ${high}]`
+                    table.appendChild(b)
+
+                    let s = document.createElement('span')
+                    s.innerHTML = '&nbsp;'
+                    table.appendChild(s)
+                }
+            }
+        }
+        else {
+            setTimeout(function() {
+                waitForElementToDisplay(selector, time);
+            }, time);
+        }
     }
 }
 
@@ -155,14 +194,24 @@ var mutationObserver = new MutationObserver(function(mutations) {
 });
 
 // set the mutation observer to check for the data table changes
-mutationObserver.observe(document.getElementById('ui-tabs-1'), {
-    attributes: true,
-    characterData: true,
-    childList: false,
-    subtree: false,
-    attributeOldValue: false,
-    characterDataOldValue: false,
-});
+try {
+    mutationObserver.observe(document.getElementById('ui-tabs-1'), {
+        attributes: true,
+        characterData: true,
+        childList: false,
+        subtree: false,
+        attributeOldValue: false,
+        characterDataOldValue: false,
+    });
+} catch (e) {
+    console.log('#ui-tabs-1 not found')
+}
+
+try {
+    waitForElementToDisplay('#tabs1', 5000, 'approval');
+} catch (e) {
+    waitForElementToDisplay('#tabs1', 5000, 'approval');
+}
 
 function chunkArray(myArray, chunk_size){
     var results = [];
