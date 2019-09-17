@@ -2,7 +2,7 @@
 // @name         AccessHub Default Styles
 // @namespace    https://openuserjs.org/users/mato-meciar
 // @copyright    2019, mato-meciar (https://openuserjs.org/users/mato-meciar)
-// @version      0.0.1
+// @version      0.1
 // @description  Default CSS, welcome back
 // @author       Martin Meciar
 // @license      MIT
