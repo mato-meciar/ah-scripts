@@ -2,7 +2,7 @@
 // @name         AccessHub Request Detail
 // @namespace    https://openuserjs.org/users/mato-meciar
 // @copyright    2019, mato-meciar (https://openuserjs.org/users/mato-meciar)
-// @version      0.5.2
+// @version      0.5.3
 // @description  Provides a clickable button for tasks details when on a request info page
 // @author       Martin Meciar
 // @license      MIT
@@ -207,12 +207,19 @@ try {
     console.log('#ui-tabs-1 not found')
 }
 
-try {
-    waitForElementToDisplay('#tabs1', 5000, 'approval');
-} catch (e) {
-    waitForElementToDisplay('#tabs1', 5000, 'approval');
+if(document.location.hostname.startsWith('ibm-test')) {
+    try {
+    waitForElementToDisplay('#tabs_task', 5000, 'approval');
+    } catch (e) {
+        waitForElementToDisplay('#tabs_task', 5000, 'approval');
+    }
+} else {
+    try {
+        waitForElementToDisplay('#tabs1', 5000, 'approval');
+    } catch (e) {
+        waitForElementToDisplay('#tabs1', 5000, 'approval');
+    }
 }
-
 function chunkArray(myArray, chunk_size){
     var results = [];
 
