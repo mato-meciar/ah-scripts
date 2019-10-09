@@ -2,7 +2,7 @@
 // @name         AccessHub Request Detail
 // @namespace    https://openuserjs.org/users/mato-meciar
 // @copyright    2019, mato-meciar (https://openuserjs.org/users/mato-meciar)
-// @version      0.5.3
+// @version      0.5.4
 // @description  Provides a clickable button for tasks details when on a request info page
 // @author       Martin Meciar
 // @license      MIT
@@ -207,7 +207,7 @@ try {
     console.log('#ui-tabs-1 not found')
 }
 
-if(document.location.hostname.startsWith('ibm-test')) {
+if(document.location.hostname.startsWith('ibm-test') || document.location.hostname.startsWith('ibm-pprod')) {
     try {
     waitForElementToDisplay('#tabs_task', 5000, 'approval');
     } catch (e) {
