@@ -2,7 +2,7 @@
 // @name         AccessHub Request Detail
 // @namespace    https://openuserjs.org/users/mato-meciar
 // @copyright    2019, mato-meciar (https://openuserjs.org/users/mato-meciar)
-// @version      0.5.4
+// @version      0.5.5
 // @description  Provides a clickable button for tasks details when on a request info page
 // @author       Martin Meciar
 // @license      MIT
@@ -22,11 +22,10 @@
 // prepare and inject the script into the page
 
 let numOfTasks
-$(document).ready(function()
-{
-    var s = document.createElement("script");
-    s.type = "text/javascript";
-    s.innerHTML = `
+$(document).ready(function() {
+  var s = document.createElement('script')
+  s.type = 'text/javascript'
+  s.innerHTML = `
 function getWordsBetweenCurlies(str) {
     var results = [],
         re = /{([^}]+)}/g,
@@ -104,128 +103,138 @@ function showPreview(taskIDList) {
   })
 }
 
-`;
-    $("head").append(s);
-});
+`
+  $('head').append(s)
+})
 
 // wait for the table data to load, then add details button
 function waitForElementToDisplay(selector, time, type) {
-    if (type && type === 'approval') {
-        if(document.querySelector(selector)) {
-            const approvalTasksOrig = $('.ui-tabs-nav')[0].children
-            if (approvalTasksOrig.length > 0) {
-                let approvalTasks = []
-                let max
-                if (approvalTasksOrig[approvalTasksOrig.length - 1].innerText === 'Tasks') {
-                    max = approvalTasksOrig.length - 1
-                } else {
-                    max = approvalTasksOrig.length
-                }
-
-                for (let i = 0; i < max; i++) {
-                    approvalTasks.push(approvalTasksOrig[i])
-                }
-
-                let lastApprovalTask = approvalTasks[approvalTasks.length - 1]
-                let approvalsOrig = lastApprovalTask.children[0]
-                let tmp = window.location.pathname.split('/')
-                const workflow = tmp[tmp.length - 1]
-                let approvals = approvalsOrig.innerText
-                approvals = approvals.replace(' Task', '')
-                let reqID = approvalsOrig.innerHTML
-                let info = document.createElement('i')
-                info.setAttribute('class', 'icon-info-sign')
-                info.setAttribute('style', 'vertical-align: middle;')
-                info.setAttribute('href', 'javascript:;')
-                info.setAttribute('onclick', `openLinkapp('/ECM/jbpmworkflowmanagement/showrequestdetails','${workflow}','${approvals}')`)
-
-                approvalsOrig.append(info)
-            }
+  if (type && type === 'approval') {
+    if (document.querySelector(selector)) {
+      const approvalTasksOrig = $('.ui-tabs-nav')[0].children
+      if (approvalTasksOrig.length > 0) {
+        let approvalTasks = []
+        let max
+        if (
+          approvalTasksOrig[approvalTasksOrig.length - 1].innerText === 'Tasks'
+        ) {
+          max = approvalTasksOrig.length - 1
+        } else {
+          max = approvalTasksOrig.length
         }
-        else {
-            setTimeout(function() {
-                waitForElementToDisplay(selector, time, 'approval');
-            }, time);
-        }
-    } else if (!type) {
-        if(document.querySelector(selector)) {
-            let i = 1
-            let max = $('#\\#scroller1 > tbody:nth-child(2) > tr > td:nth-child(1)').length
-            let taskIDList = []
-            for (i; i <= max; i++) {
-                let element = $(`#\\#scroller1 > tbody:nth-child(2) > tr:nth-child(${i}) > td:nth-child(1)`)[0]
-                let taskID = element.innerHTML
-                taskIDList.push(parseInt(taskID))
-            }
 
-            const tasksChunks = chunkArray(taskIDList, 10)
-
-            const table = $('#ui-tabs-1')[0]
-            if (table) {
-                for (let i = 0; i < tasksChunks.length; i++) {
-                    const chunk = tasksChunks[i]
-                    let b = document.createElement('button')
-                    b.setAttribute("class", "btn purple")
-                    b.setAttribute("type", "button")
-                    b.setAttribute("id", `yui-gen${i+1}-button`)
-                    b.setAttribute("onclick", `showPreview('${chunk.join(', ')}')`)
-                    let low = 1 + (i * 10)
-                    let high = (i + 1) * 10
-                    b.innerHTML = `<i class="icon-eye-open"></i> [${low} - ${high}]`
-                    table.appendChild(b)
-
-                    let s = document.createElement('span')
-                    s.innerHTML = '&nbsp;'
-                    table.appendChild(s)
-                }
-            }
+        for (let i = 0; i < max; i++) {
+          approvalTasks.push(approvalTasksOrig[i])
         }
-        else {
-            setTimeout(function() {
-                waitForElementToDisplay(selector, time);
-            }, time);
-        }
+
+        let lastApprovalTask = approvalTasks[approvalTasks.length - 1]
+        let approvalsOrig = lastApprovalTask.children[0]
+        let tmp = window.location.pathname.split('/')
+        const workflow = tmp[tmp.length - 1]
+        let approvals = approvalsOrig.innerText
+        approvals = approvals.replace(' Task', '')
+        let reqID = approvalsOrig.innerHTML
+        let info = document.createElement('i')
+        info.setAttribute('class', 'icon-info-sign')
+        info.setAttribute('style', 'vertical-align: middle;')
+        info.setAttribute('href', 'javascript:;')
+        info.setAttribute(
+          'onclick',
+          `openLinkapp('/ECM/jbpmworkflowmanagement/showrequestdetails','${workflow}','${approvals}')`
+        )
+
+        approvalsOrig.append(info)
+      }
+    } else {
+      setTimeout(function() {
+        waitForElementToDisplay(selector, time, 'approval')
+      }, time)
     }
+  } else if (!type) {
+    if (document.querySelector(selector)) {
+      let i = 1
+      let max = $('#\\#scroller1 > tbody:nth-child(2) > tr > td:nth-child(1)')
+        .length
+      let taskIDList = []
+      for (i; i <= max; i++) {
+        let element = $(
+          `#\\#scroller1 > tbody:nth-child(2) > tr:nth-child(${i}) > td:nth-child(1)`
+        )[0]
+        let taskID = element.innerHTML
+        taskIDList.push(parseInt(taskID))
+      }
+
+      const tasksChunks = chunkArray(taskIDList, 10)
+
+      const table = $('#taskrequesttab')[0]
+      if (table) {
+        for (let i = 0; i < tasksChunks.length; i++) {
+          const chunk = tasksChunks[i]
+          let b = document.createElement('button')
+          b.setAttribute('class', 'btn purple')
+          b.setAttribute('type', 'button')
+          b.setAttribute('id', `yui-gen${i + 1}-button`)
+          b.setAttribute('onclick', `showPreview('${chunk.join(', ')}')`)
+          let low = 1 + i * 10
+          let high = (i + 1) * 10
+          b.innerHTML = `<i class="icon-eye-open"></i> [${low} - ${high}]`
+          table.appendChild(b)
+
+          let s = document.createElement('span')
+          s.innerHTML = '&nbsp;'
+          table.appendChild(s)
+        }
+      }
+    } else {
+      setTimeout(function() {
+        waitForElementToDisplay(selector, time)
+      }, time)
+    }
+  }
 }
 
 // set up a mutation observer
 var mutationObserver = new MutationObserver(function(mutations) {
-    waitForElementToDisplay('#ui-tabs-1', 2000);
-});
+  waitForElementToDisplay('#taskrequesttab', 2000)
+})
 
 // set the mutation observer to check for the data table changes
 try {
-    mutationObserver.observe(document.getElementById('ui-tabs-1'), {
-        attributes: true,
-        characterData: true,
-        childList: false,
-        subtree: false,
-        attributeOldValue: false,
-        characterDataOldValue: false,
-    });
+  mutationObserver.observe(document.getElementById('taskrequesttab'), {
+    attributes: true,
+    characterData: true,
+    childList: false,
+    subtree: false,
+    attributeOldValue: false,
+    characterDataOldValue: false
+  })
 } catch (e) {
-    console.log('#ui-tabs-1 not found')
+  console.log('#taskrequesttab not found')
 }
 
-if(document.location.hostname.startsWith('ibm-test') || document.location.hostname.startsWith('ibm-pprod')) {
-    try {
-    waitForElementToDisplay('#tabs_task', 5000, 'approval');
-    } catch (e) {
-        waitForElementToDisplay('#tabs_task', 5000, 'approval');
-    }
+if (
+  document.location.hostname.startsWith('ibm-dev') ||
+  document.location.hostname.startsWith('ibm-test') ||
+  document.location.hostname.startsWith('ibm-pprod')
+) {
+  try {
+    waitForElementToDisplay('#tabs_task', 5000, 'approval')
+  } catch (e) {
+    waitForElementToDisplay('#tabs_task', 5000, 'approval')
+  }
 } else {
-    try {
-        waitForElementToDisplay('#tabs1', 5000, 'approval');
-    } catch (e) {
-        waitForElementToDisplay('#tabs1', 5000, 'approval');
-    }
+  try {
+    waitForElementToDisplay('#tabs1', 5000, 'approval')
+  } catch (e) {
+    waitForElementToDisplay('#tabs1', 5000, 'approval')
+  }
 }
-function chunkArray(myArray, chunk_size){
-    var results = [];
+function chunkArray(myArray, chunk_size) {
+  var results = []
 
-    while (myArray.length) {
-        results.push(myArray.splice(0, chunk_size));
-    }
+  while (myArray.length) {
+    results.push(myArray.splice(0, chunk_size))
+  }
 
-    return results;
+  return results
 }
