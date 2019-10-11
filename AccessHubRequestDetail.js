@@ -2,7 +2,7 @@
 // @name         AccessHub Request Detail
 // @namespace    https://openuserjs.org/users/mato-meciar
 // @copyright    2019, mato-meciar (https://openuserjs.org/users/mato-meciar)
-// @version      0.5.5
+// @version      0.5.6
 // @description  Provides a clickable button for tasks details when on a request info page
 // @author       Martin Meciar
 // @license      MIT
@@ -20,7 +20,6 @@
 // ==/OpenUserJS==
 
 // prepare and inject the script into the page
-
 let numOfTasks
 $(document).ready(function() {
   var s = document.createElement('script')
@@ -39,7 +38,7 @@ function getWordsBetweenCurlies(str) {
                 }
             } else {
                 if (results.indexOf(text[1]) < 0)
-                    /*SD-3077 •	SQL analytics control are not getting created. resolved this*/
+                    /*SD-3077 •   SQL analytics control are not getting created. resolved this*/
                     results.push(text[1]);
             }
         }
@@ -56,9 +55,7 @@ function showPreview(taskIDList) {
   var externalConnection = ''
   var runtime = 'false'
   var sqlAnalytics = 'true'
-
   completepath = '/ECM/analyticsConfig/detailspreview'
-
   $.ajax({
     async: true,
     url: completepath,
@@ -75,7 +72,6 @@ function showPreview(taskIDList) {
       returnData = returnData.replace(/iDisplayLength.*/, 'iDisplayLength\": 10,')
       returnDataGlob = returnData
       $('.opened-dialogs').dialog('close')
-
       $('<div class="opened-dialogs">')
         .html('loading...')
         .dialog({
@@ -87,7 +83,6 @@ function showPreview(taskIDList) {
           close: function(event, ui) {
             $(this).remove()
           },
-
           title: '',
           minWidth: 1200,
           modal: true,
@@ -102,13 +97,11 @@ function showPreview(taskIDList) {
     error: function(e) {}
   })
 }
-
 `
   $('head').append(s)
 })
-
 // wait for the table data to load, then add details button
-function waitForElementToDisplay(selector, time, type) {
+function waitForElementToDisplay(selector, time, type, tableId) {
   if (type && type === 'approval') {
     if (document.querySelector(selector)) {
       const approvalTasksOrig = $('.ui-tabs-nav')[0].children
@@ -122,11 +115,9 @@ function waitForElementToDisplay(selector, time, type) {
         } else {
           max = approvalTasksOrig.length
         }
-
         for (let i = 0; i < max; i++) {
           approvalTasks.push(approvalTasksOrig[i])
         }
-
         let lastApprovalTask = approvalTasks[approvalTasks.length - 1]
         let approvalsOrig = lastApprovalTask.children[0]
         let tmp = window.location.pathname.split('/')
@@ -142,7 +133,6 @@ function waitForElementToDisplay(selector, time, type) {
           'onclick',
           `openLinkapp('/ECM/jbpmworkflowmanagement/showrequestdetails','${workflow}','${approvals}')`
         )
-
         approvalsOrig.append(info)
       }
     } else {
@@ -163,10 +153,8 @@ function waitForElementToDisplay(selector, time, type) {
         let taskID = element.innerHTML
         taskIDList.push(parseInt(taskID))
       }
-
       const tasksChunks = chunkArray(taskIDList, 10)
-
-      const table = $('#taskrequesttab')[0]
+      const table = $(tableId)[0]
       if (table) {
         for (let i = 0; i < tasksChunks.length; i++) {
           const chunk = tasksChunks[i]
@@ -179,7 +167,6 @@ function waitForElementToDisplay(selector, time, type) {
           let high = (i + 1) * 10
           b.innerHTML = `<i class="icon-eye-open"></i> [${low} - ${high}]`
           table.appendChild(b)
-
           let s = document.createElement('span')
           s.innerHTML = '&nbsp;'
           table.appendChild(s)
@@ -193,36 +180,59 @@ function waitForElementToDisplay(selector, time, type) {
   }
 }
 
-// set up a mutation observer
-var mutationObserver = new MutationObserver(function(mutations) {
-  waitForElementToDisplay('#taskrequesttab', 2000)
-})
-
-// set the mutation observer to check for the data table changes
-try {
-  mutationObserver.observe(document.getElementById('taskrequesttab'), {
-    attributes: true,
-    characterData: true,
-    childList: false,
-    subtree: false,
-    attributeOldValue: false,
-    characterDataOldValue: false
-  })
-} catch (e) {
-  console.log('#taskrequesttab not found')
-}
-
+var mutationObserver
 if (
   document.location.hostname.startsWith('ibm-dev') ||
   document.location.hostname.startsWith('ibm-test') ||
   document.location.hostname.startsWith('ibm-pprod')
 ) {
+  // set up a mutation observer
+  mutationObserver = new MutationObserver(function(mutations) {
+    waitForElementToDisplay(
+      '#taskrequesttab',
+      2000,
+      undefined,
+      '#taskrequesttab'
+    )
+  })
+  // set the mutation observer to check for the data table changes
+  try {
+    mutationObserver.observe(document.getElementById('taskrequesttab'), {
+      attributes: true,
+      characterData: true,
+      childList: false,
+      subtree: false,
+      attributeOldValue: false,
+      characterDataOldValue: false
+    })
+  } catch (e) {
+    console.log('#taskrequesttab not found')
+  }
+
   try {
     waitForElementToDisplay('#tabs_task', 5000, 'approval')
   } catch (e) {
     waitForElementToDisplay('#tabs_task', 5000, 'approval')
   }
 } else {
+  // set up a mutation observer
+  mutationObserver = new MutationObserver(function(mutations) {
+    waitForElementToDisplay('#ui-tabs-1', 2000, undefined, '#ui-tabs-1')
+  })
+  // set the mutation observer to check for the data table changes
+  try {
+    mutationObserver.observe(document.getElementById('ui-tabs-1'), {
+      attributes: true,
+      characterData: true,
+      childList: false,
+      subtree: false,
+      attributeOldValue: false,
+      characterDataOldValue: false
+    })
+  } catch (e) {
+    console.log('#ui-tabs-1 not found')
+  }
+
   try {
     waitForElementToDisplay('#tabs1', 5000, 'approval')
   } catch (e) {
@@ -231,10 +241,8 @@ if (
 }
 function chunkArray(myArray, chunk_size) {
   var results = []
-
   while (myArray.length) {
     results.push(myArray.splice(0, chunk_size))
   }
-
   return results
 }
