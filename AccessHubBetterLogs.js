@@ -2,7 +2,7 @@
 // @name         AccessHub Better Logs
 // @namespace    https://openuserjs.org/users/mato-meciar
 // @copyright    2019, mato-meciar (https://openuserjs.org/users/mato-meciar)
-// @version      0.2
+// @version      0.3
 // @description  Ignore the 1000 lines limitation when fetching logs
 // @author       Martin Meciar
 // @license      MIT
@@ -12,7 +12,7 @@
 // @supportURL   https://github.com/mato-meciar/ah-scripts
 // @match        *.idaccesshub.com/ECM/logs/showLogs*
 // @grant        none
-// @run-at       document-end
+// @run-at       document-body
 // ==/UserScript==
 
 // ==OpenUserJS==
@@ -32,6 +32,7 @@ $(document).ready(function() {
             let logView = document.getElementById('loggers')
             logView.removeAttribute('disabled')
             logView.setAttribute('readonly', '')
+            logView.setAttribute('style', 'background-color: black !important; color: white !important; font-family: "Helvetica" !important; font-size: 14px !important;')
             clearInterval(checkExist);
         }
     }, 1000);
