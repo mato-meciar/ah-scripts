@@ -2,7 +2,7 @@
 // @name         AccessHub Request Detail
 // @namespace    https://openuserjs.org/users/mato-meciar
 // @copyright    2019, mato-meciar (https://openuserjs.org/users/mato-meciar)
-// @version      0.5.6
+// @version      0.5.7
 // @description  Provides a clickable button for tasks details when on a request info page
 // @author       Martin Meciar
 // @license      MIT
@@ -184,7 +184,8 @@ var mutationObserver
 if (
   document.location.hostname.startsWith('ibm-dev') ||
   document.location.hostname.startsWith('ibm-test') ||
-  document.location.hostname.startsWith('ibm-pprod')
+  document.location.hostname.startsWith('ibm-pprod') ||
+  document.location.hostname.startsWith('ibm')
 ) {
   // set up a mutation observer
   mutationObserver = new MutationObserver(function(mutations) {
