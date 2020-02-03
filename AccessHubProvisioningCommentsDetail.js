@@ -2,7 +2,7 @@
 // @name         AccessHub Provisioning Comments Detail
 // @namespace    https://openuserjs.org/users/mato-meciar
 // @copyright    2019, mato-meciar (https://openuserjs.org/users/mato-meciar)
-// @version      0.3.2
+// @version      0.3.3
 // @description  Provides a clickable provisioning comments detail for pending & completed tasks
 // @author       Martin Meciar
 // @license      MIT
@@ -21,11 +21,10 @@
 // ==/OpenUserJS==
 
 // prepare and inject the script into the page
-$(document).ready(function()
-{
-    var s = document.createElement("script");
-    s.type = "text/javascript";
-    s.innerHTML = `
+$(document).ready(function () {
+  var s = document.createElement("script");
+  s.type = "text/javascript";
+  s.innerHTML = `
 function getWordsBetweenCurlies(str) {
     var results = [],
         re = /{([^}]+)}/g,
@@ -39,7 +38,7 @@ function getWordsBetweenCurlies(str) {
                 }
             } else {
                 if (results.indexOf(text[1]) < 0)
-                    /*SD-3077 •	SQL analytics control are not getting created. resolved this*/
+                    /*SD-3077 •  SQL analytics control are not getting created. resolved this*/
                     results.push(text[1]);
             }
         }
@@ -110,45 +109,46 @@ function showPreview(taskID) {
     });
 }
 `;
-    $("head").append(s);
+  $("head").append(s);
 });
 
 // wait for the table data to load, then add details button
 function waitForElementToDisplay(selector, time) {
-    if(!document.querySelector(selector) || document.querySelector(selector) != null) {
-        let i = 1
-        let max = parseInt(document.getElementsByName('usersList_length')[0].selectedOptions[0].value)
-        if (!$('body > div.footer > div.footer-inner')[0].innerText.includes('5.4')) {
-            i = 7
-            max += 6
-        }
-        for (i; i <= max; i++) {
-            let element = document.getElementsByTagName('tr')[i].getElementsByTagName('td')[1]
-            let taskID = element.innerHTML
-            element.innerHTML = `<button class="btn purple" type="button" id="yui-gen${i}-button" onclick="showPreview(${taskID})"><i class="icon-eye-open"></i> ${taskID}</button>`
-        }
-        return;
+  if (!document.querySelector(selector) || document.querySelector(selector) != null) {
+    let i = 1
+    let max = parseInt(document.getElementsByName('usersList_length')[0].selectedOptions[0].value)
+//  not needed for now
+//    if (!$('body > div.footer > div.footer-inner')[0].innerText.includes('5.4')) {
+//      i = 7
+//      max += 6
+//    }
+    for (i; i <= max; i++) {
+      let element = document.getElementsByTagName('tr')[i].getElementsByTagName('td')[1]
+      let taskID = element.innerHTML
+      element.innerHTML = `<button class="btn purple" type="button" id="yui-gen${i}-button" onclick="showPreview(${taskID})"><i class="icon-eye-open"></i> ${taskID}</button>`
     }
-    else {
-        setTimeout(function() {
-            waitForElementToDisplay(selector, time);
-        }, time);
-    }
+    return;
+  }
+  else {
+    setTimeout(function () {
+      waitForElementToDisplay(selector, time);
+    }, time);
+  }
 }
 
 // set up a mutation observer that re-adds the details buttons when user changes the amount of shown rows or filters the results
-var mutationObserver = new MutationObserver(function(mutations) {
-    waitForElementToDisplay('.btn-xs', 2000);
-    //mutations.forEach(function(mutation) {
-    //});
+var mutationObserver = new MutationObserver(function (mutations) {
+  waitForElementToDisplay('.btn-xs', 2000);
+  //mutations.forEach(function(mutation) {
+  //});
 });
 
 // set the mutation observer to check for the data table changes
 mutationObserver.observe(document.getElementById('usersList'), {
-    attributes: true,
-    characterData: false,
-    childList: false,
-    subtree: true,
-    attributeOldValue: false,
-    characterDataOldValue: false,
+  attributes: true,
+  characterData: false,
+  childList: false,
+  subtree: true,
+  attributeOldValue: false,
+  characterDataOldValue: false,
 });
