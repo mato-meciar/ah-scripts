@@ -2,7 +2,7 @@
 // @name         AccessHub Request Detail
 // @namespace    https://openuserjs.org/users/mato-meciar
 // @copyright    2019, mato-meciar (https://openuserjs.org/users/mato-meciar)
-// @version      0.5.7
+// @version      0.5.8
 // @description  Provides a clickable button for tasks details when on a request info page
 // @author       Martin Meciar
 // @license      MIT
@@ -131,9 +131,11 @@ function waitForElementToDisplay(selector, time, type, tableId) {
         info.setAttribute('href', 'javascript:;')
         info.setAttribute(
           'onclick',
-          `openLinkapp('/ECM/jbpmworkflowmanagement/showrequestdetails','${workflow}','${approvals}')`
+          `openLinkapp('/ECM/jbpmworkflowmanagement/showrequestdetails','${encodeURIComponent(workflow)}','${approvals}')`
         )
         approvalsOrig.append(info)
+        console.log(workflow)
+        console.log(approvals)
       }
     } else {
       setTimeout(function() {
