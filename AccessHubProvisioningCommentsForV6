@@ -2,7 +2,7 @@
 // @name         AccessHub Request Detail for v6
 // @namespace    https://openuserjs.org/users/mato-meciar
 // @copyright    2020, mato-meciar (https://openuserjs.org/users/mato-meciar)
-// @version      0.8
+// @version      0.9
 // @description  Provides a clickable button for tasks details when on a request info page
 // @author       Martin Meciar
 // @license      MIT
@@ -20,22 +20,16 @@
 // ==/OpenUserJS==
 
 // prepare and inject the script into the page
-let mutationObserver
-mutationObserver = new MutationObserver(function (mutations) {
-  waitForElementToDisplay('[class^="RequestHistoryContainer_headerIcon"]', 2000)
-})
+// let mutationObserver
+// mutationObserver = new MutationObserver(function (mutations) {
+//   waitForElementToDisplay('[class^="RequestHistoryContainer_headerIcon"]', 2000)
+// })
 
 try {
   waitForElementToDisplay(
     '[class^="RequestHistoryContainer_headerIcon"]',
     2000
   )
-  try {
-    mutationObserver.observe(document, {
-      childList: true,
-      subtree: true
-    })
-  } catch (e) {}
 } catch (e) {
   waitForElementToDisplay(
     '[class^="RequestHistoryContainer_headerIcon"]',
@@ -50,6 +44,7 @@ function waitForElementToDisplay (selector, time) {
       const requestId = window.location.href.split('requestHistory/')[1].split('/')[0]
       content.setAttribute('type', 'button')
       content.setAttribute('onclick', `fetchTasks('${requestId}')`)
+      prepare()
     }
   } else {
     setTimeout(function () {
@@ -59,10 +54,6 @@ function waitForElementToDisplay (selector, time) {
 }
 
 waitForElementToDisplay('#panel1a-header', 2000)
-
-window.onload = function () {
-  prepare()
-}
 
 function prepare () {
   const jquery = document.createElement('script')
@@ -434,7 +425,8 @@ async function fetchTasks (requestId) {
           const td = document.createElement('td')
           let str = rowData[key]
           if (key.toLowerCase().endsWith('date')) {
-            const date = new Date(rowData[key].concat(' UTC'))
+            const dateString = rowData[key].replace(' ', 'T').concat('Z')
+            const date = new Date(dateString)
             const offsetMs = date.getTimezoneOffset() * 60 * 1000
             const dateLocal = new Date(date.getTime() - offsetMs)
             str = dateLocal.toISOString().slice(0, 19).replace(/-/g, '/').replace('T', ' ')
@@ -458,6 +450,7 @@ async function fetchTasks (requestId) {
     content.setAttribute('class', originalClass)
     content.removeAttribute('style')
     content.innerHTML = originalInnerHtml
+    console.log('[response data]', response.data)
     printResponse(response.data)
   })
 }
