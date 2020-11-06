@@ -7,8 +7,8 @@
 // @author       Martin Meciar
 // @license      MIT
 // @homepageURL  https://github.com/mato-meciar/ah-scripts
-// @updateURL    https://raw.githubusercontent.com/mato-meciar/ah-scripts/master/AccessHubProvisioningCommentsForV6
-// @downloadURL  https://raw.githubusercontent.com/mato-meciar/ah-scripts/master/AccessHubProvisioningCommentsForV6
+// @updateURL    https://raw.githubusercontent.com/mato-meciar/ah-scripts/master/AccessHubProvisioningCommentsForV6.js
+// @downloadURL  https://raw.githubusercontent.com/mato-meciar/ah-scripts/master/AccessHubProvisioningCommentsForV6.js
 // @supportURL   https://github.com/mato-meciar/ah-scripts
 // @match        *.idaccesshub.com/ECMv6/request/*
 // @grant        none
