@@ -2,7 +2,7 @@
 // @name         AccessHub Pending Tasks
 // @namespace    https://openuserjs.org/users/mato-meciar
 // @copyright    2019, mato-meciar (https://openuserjs.org/users/mato-meciar)
-// @version      0.3.1
+// @version      0.3.2
 // @description  Provides a clickable link to list of pending tasks for opened Security System
 // @author       Martin Meciar
 // @license      MIT
@@ -11,6 +11,7 @@
 // @downloadURL  https://raw.githubusercontent.com/mato-meciar/ah-scripts/master/AccessHubPendingTasks.js
 // @supportURL   https://github.com/mato-meciar/ah-scripts
 // @match        *.idaccesshub.com/ECM/securitysystems/show/*
+// @match        *.saviyntcloud.com/ECM/securitysystems/show/*
 // @grant        none
 // @run-at       document-end
 // ==/UserScript==
