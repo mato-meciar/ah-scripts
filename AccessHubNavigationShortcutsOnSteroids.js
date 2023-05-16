@@ -2,7 +2,7 @@
 // @name         AccessHub Navigation Shortcuts (on Steroids)
 // @namespace    https://openuserjs.org/users/mato-meciar
 // @copyright    2020, mato-meciar (https://openuserjs.org/users/mato-meciar)
-// @version      0.9
+// @version      0.10
 // @description  Don't waste time searching for navigation items in the burger menu
 // @author       Martin Meciar (with help from P.K.)
 // @license      MIT
@@ -11,6 +11,7 @@
 // @downloadURL  https://raw.githubusercontent.com/mato-meciar/ah-scripts/master/AccessHubNavigationShortcutsOnSteroids.js
 // @supportURL   https://github.com/mato-meciar/ah-scripts
 // @match        *.idaccesshub.com/*
+// @match        *.saviyntcloud.com/*
 // @grant        none
 // @run-at       document-body
 // ==/UserScript==
