@@ -2,7 +2,7 @@
 // @name         AccessHub Navigation Shortcuts
 // @namespace    https://openuserjs.org/users/mato-meciar
 // @copyright    2020, mato-meciar (https://openuserjs.org/users/mato-meciar)
-// @version      0.8
+// @version      0.9
 // @description  Don't waste time searching for navigation items in the burger menu
 // @author       Martin Meciar
 // @license      MIT
@@ -11,6 +11,7 @@
 // @downloadURL  https://raw.githubusercontent.com/mato-meciar/ah-scripts/master/AccessHubNavigationShortcuts.js
 // @supportURL   https://github.com/mato-meciar/ah-scripts
 // @match        *.idaccesshub.com/*
+// @match        *.saviyntcloud.com/*
 // @grant        none
 // @run-at       document-body
 // ==/UserScript==
