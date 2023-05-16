@@ -2,7 +2,7 @@
 // @name         AccessHub Provisioning Comments Detail
 // @namespace    https://openuserjs.org/users/mato-meciar
 // @copyright    2019, mato-meciar (https://openuserjs.org/users/mato-meciar)
-// @version      0.3.3
+// @version      0.3.4
 // @description  Provides a clickable provisioning comments detail for pending & completed tasks
 // @author       Martin Meciar
 // @license      MIT
@@ -12,6 +12,8 @@
 // @supportURL   https://github.com/mato-meciar/ah-scripts
 // @match        *.idaccesshub.com/ECM/workflowmanagement/completetasklist*
 // @match        *.idaccesshub.com/ECM/workflowmanagement/pendingtasklist*
+// @match        *.saviyntcloud.com/ECM/workflowmanagement/completetasklist*
+// @match        *.saviyntcloud.com/ECM/workflowmanagement/pendingtasklist*
 // @grant        none
 // @run-at       document-end
 // ==/UserScript==
