@@ -2,7 +2,7 @@
 // @name         AccessHub Connection Detail
 // @namespace    https://openuserjs.org/users/mato-meciar
 // @copyright    2019, mato-meciar (https://openuserjs.org/users/mato-meciar)
-// @version      0.1.3
+// @version      0.1.4
 // @description  Provides a clickable link to connections straight from Sec. Systems list page
 // @author       Martin Meciar
 // @license      MIT
@@ -11,6 +11,7 @@
 // @downloadURL  https://raw.githubusercontent.com/mato-meciar/ah-scripts/master/AccessHubConnectionDetail.js
 // @supportURL   https://github.com/mato-meciar/ah-scripts
 // @match        *.idaccesshub.com/ECM/securitysystems/list*
+// @match        *.saviyntcloud.com/ECM/securitysystems/list*
 // @grant        none
 // @run-at       document-end
 // ==/UserScript==
