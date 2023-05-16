@@ -2,7 +2,7 @@
 // @name         AccessHub Better Logs
 // @namespace    https://openuserjs.org/users/mato-meciar
 // @copyright    2019, mato-meciar (https://openuserjs.org/users/mato-meciar)
-// @version      0.3
+// @version      0.3.1
 // @description  Ignore the 1000 lines limitation when fetching logs
 // @author       Martin Meciar
 // @license      MIT
