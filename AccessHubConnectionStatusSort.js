@@ -2,7 +2,7 @@
 // @name         AccessHub Connection Status Sort
 // @namespace    https://openuserjs.org/users/mato-meciar
 // @copyright    2019, mato-meciar (https://openuserjs.org/users/mato-meciar)
-// @version      0.1.1
+// @version      0.1.2
 // @description  Enables sorting of connections by their status
 // @author       Martin Meciar
 // @license      MIT
@@ -11,6 +11,7 @@
 // @downloadURL  https://raw.githubusercontent.com/mato-meciar/ah-scripts/master/AccessHubConnectionStatusSort.js
 // @supportURL   https://github.com/mato-meciar/ah-scripts
 // @match        *.idaccesshub.com/ECM/ecmConfig/externalconfig*
+// @match        *.saviyntcloud.com/ECM/ecmConfig/externalconfig*
 // @grant        none
 // @run-at       document-end
 // ==/UserScript==
