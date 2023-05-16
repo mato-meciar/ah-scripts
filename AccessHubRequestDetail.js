@@ -2,7 +2,7 @@
 // @name         AccessHub Request Detail
 // @namespace    https://openuserjs.org/users/mato-meciar
 // @copyright    2019, mato-meciar (https://openuserjs.org/users/mato-meciar)
-// @version      0.5.8
+// @version      0.5.9
 // @description  Provides a clickable button for tasks details when on a request info page
 // @author       Martin Meciar
 // @license      MIT
@@ -11,6 +11,7 @@
 // @downloadURL  https://raw.githubusercontent.com/mato-meciar/ah-scripts/master/AccessHubRequestDetail.js
 // @supportURL   https://github.com/mato-meciar/ah-scripts
 // @match        *.idaccesshub.com/ECM/jbpmworkflowmanagement/showrequestdetails/*
+// @match        *.saviyntcloud.com/ECM/jbpmworkflowmanagement/showrequestdetails/*
 // @grant        none
 // @run-at       document-end
 // ==/UserScript==
