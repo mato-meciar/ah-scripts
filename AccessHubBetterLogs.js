@@ -11,6 +11,7 @@
 // @downloadURL  https://raw.githubusercontent.com/mato-meciar/ah-scripts/master/AccessHubBetterLogs.js
 // @supportURL   https://github.com/mato-meciar/ah-scripts
 // @match        *.idaccesshub.com/ECM/logs/showLogs*
+// @match        *.saviyntcloud.com/ECM/logs/showLogs*
 // @grant        none
 // @run-at       document-body
 // ==/UserScript==
