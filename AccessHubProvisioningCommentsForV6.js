@@ -2,7 +2,7 @@
 // @name         AccessHub Request Detail for v6
 // @namespace    https://openuserjs.org/users/mato-meciar
 // @copyright    2020, mato-meciar (https://openuserjs.org/users/mato-meciar)
-// @version      0.9.1
+// @version      0.9.2
 // @description  Provides a clickable button for tasks details when on a request info page
 // @author       Martin Meciar
 // @license      MIT
@@ -11,6 +11,7 @@
 // @downloadURL  https://raw.githubusercontent.com/mato-meciar/ah-scripts/master/AccessHubProvisioningCommentsForV6.js
 // @supportURL   https://github.com/mato-meciar/ah-scripts
 // @match        *.idaccesshub.com/ECMv6/request/*
+// @match        *.saviyntcloud.com/ECMv6/request/*
 // @grant        none
 // @run-at       document-idle
 // ==/UserScript==
