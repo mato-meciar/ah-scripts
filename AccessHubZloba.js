@@ -2,7 +2,7 @@
 // @name         AccessHub Zloba
 // @namespace    https://openuserjs.org/users/mato-meciar
 // @copyright    2019, mato-meciar (https://openuserjs.org/users/mato-meciar)
-// @version      0.4.6
+// @version      0.4.7
 // @description  Re-enables the Wizard functionality for creating/editing REST connections
 // @author       Martin Meciar
 // @license      MIT
@@ -10,7 +10,8 @@
 // @updateURL    https://raw.githubusercontent.com/mato-meciar/ah-scripts/master/AccessHubZloba.js
 // @downloadURL  https://raw.githubusercontent.com/mato-meciar/ah-scripts/master/AccessHubZloba.js
 // @supportURL   https://github.com/mato-meciar/ah-scripts
-// @match        *.idaccesshub.com/ECM/ecmConfig/addnewconnection*
+// @match        *ibm-test.idaccesshub.com/ECM/ecmConfig/addnewconnection*
+// @match        *ibm-pprod.idaccesshub.com/ECM/ecmConfig/addnewconnection*
 // @match        *.saviyntcloud.com/ECM/ecmConfig/addnewconnection*
 // @grant        none
 // @run-at       document-end
