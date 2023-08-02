@@ -2,7 +2,7 @@
 // @name         AccessHub Request History Filter
 // @namespace    https://openuserjs.org/users/mato-meciar
 // @copyright    20123, mato-meciar (https://openuserjs.org/users/mato-meciar)
-// @version      1.0.0
+// @version      1.0.1
 // @description  Provides a custom filter solution
 // @author       Martin Meciar
 // @license      MIT
@@ -26,7 +26,7 @@ var checkExist = setInterval(function () {
     if (searchBox) {
       const button = document.createElement('button')
       button.className = 'MuiButtonBase-root MuiButton-root MuiButton-outlined jss6 MuiButton-outlinedPrimary MuiButton-outlinedSizeSmall MuiButton-sizeSmall'
-      button.innerHTML = '<i class="icon-info"></i>&nbsp;Filter Requests'
+      button.innerHTML = 'Filter by Endpoint Name'
       button.style.marginLeft = '10px'
       button.onclick = () => {
         const inputElement =
