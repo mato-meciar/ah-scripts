@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         AccessHub JSON editor
 // @namespace    https://openuserjs.org/users/mato-meciar
-// @copyright    2019, mato-meciar (https://openuserjs.org/users/mato-meciar)
-// @version      0.2.2
+// @copyright    2024, mato-meciar (https://openuserjs.org/users/mato-meciar)
+// @version      0.2.3
 // @description  Provides a clickable button for editing connections in better editor
 // @author       Martin Meciar
 // @license      MIT
@@ -10,7 +10,7 @@
 // @updateURL    https://raw.githubusercontent.com/mato-meciar/ah-scripts/master/AccessHubJSONeditor.js
 // @downloadURL  https://raw.githubusercontent.com/mato-meciar/ah-scripts/master/AccessHubJSONeditor.js
 // @supportURL   https://github.com/mato-meciar/ah-scripts
-// @match        *.idaccesshub.com/ECM/ecmConfig/addnewconnection/*
+// @match        https://*.idaccesshub.com/ECM/ecmConfig/addnewconnection/*
 // @grant        none
 // @run-at       document-end
 // ==/UserScript==
