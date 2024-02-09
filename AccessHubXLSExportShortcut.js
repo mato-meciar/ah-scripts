@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         AccessHub XLS Export Shortcut
 // @namespace    https://openuserjs.org/users/mato-meciar
-// @copyright    2019, mato-meciar (https://openuserjs.org/users/mato-meciar)
-// @version      0.2.1
+// @copyright    2024, mato-meciar (https://openuserjs.org/users/mato-meciar)
+// @version      0.2.2
 // @description  Provides a shortcut to XLS Export button
 // @author       Martin Meciar
 // @license      MIT
@@ -10,8 +10,8 @@
 // @updateURL    https://raw.githubusercontent.com/mato-meciar/ah-scripts/master/AccessHubXLSExportShortcut.js
 // @downloadURL  https://raw.githubusercontent.com/mato-meciar/ah-scripts/master/AccessHubXLSExportShortcut.js
 // @supportURL   https://github.com/mato-meciar/ah-scripts
-// @match        */ECM/analyticsConfig/runtimeanalytics/*
-// @match        */ECM/analyticsHistoryES/*
+// @match        https://*/ECM/analyticsConfig/runtimeanalytics/*
+// @match        https://*/ECM/analyticsHistoryES/*
 // @grant        none
 // @run-at       document-end
 // ==/UserScript==
