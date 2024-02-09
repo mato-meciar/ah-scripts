@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         AccessHub Better Logs
 // @namespace    https://openuserjs.org/users/mato-meciar
-// @copyright    2019, mato-meciar (https://openuserjs.org/users/mato-meciar)
-// @version      0.3.1
+// @copyright    2024, mato-meciar (https://openuserjs.org/users/mato-meciar)
+// @version      0.3.2
 // @description  Ignore the 1000 lines limitation when fetching logs
 // @author       Martin Meciar
 // @license      MIT
@@ -10,8 +10,8 @@
 // @updateURL    https://raw.githubusercontent.com/mato-meciar/ah-scripts/master/AccessHubBetterLogs.js
 // @downloadURL  https://raw.githubusercontent.com/mato-meciar/ah-scripts/master/AccessHubBetterLogs.js
 // @supportURL   https://github.com/mato-meciar/ah-scripts
-// @match        *.idaccesshub.com/ECM/logs/showLogs*
-// @match        *.saviyntcloud.com/ECM/logs/showLogs*
+// @match        https://*.idaccesshub.com/ECM/logs/showLogs*
+// @match        https://*.saviyntcloud.com/ECM/logs/showLogs*
 // @grant        none
 // @run-at       document-body
 // ==/UserScript==
