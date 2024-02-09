@@ -2,7 +2,7 @@
 // @name         AccessHub Navigation Shortcuts
 // @namespace    https://openuserjs.org/users/mato-meciar
 // @copyright    2024, mato-meciar (https://openuserjs.org/users/mato-meciar)
-// @version      0..1
+// @version      0.9.2
 // @description  Don't waste time searching for navigation items in the burger menu
 // @author       Martin Meciar
 // @license      MIT
