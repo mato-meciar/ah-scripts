@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         AccessHub Request History Filter
 // @namespace    https://openuserjs.org/users/mato-meciar
-// @copyright    20123, mato-meciar (https://openuserjs.org/users/mato-meciar)
-// @version      1.0.1
+// @copyright    2024, mato-meciar (https://openuserjs.org/users/mato-meciar)
+// @version      1.0.2
 // @description  Provides a custom filter solution
 // @author       Martin Meciar
 // @license      MIT
