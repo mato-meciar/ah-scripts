@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         AccessHub Zloba
 // @namespace    https://openuserjs.org/users/mato-meciar
-// @copyright    2023, mato-meciar (https://openuserjs.org/users/mato-meciar)
-// @version      0.4.8
+// @copyright    2024, mato-meciar (https://openuserjs.org/users/mato-meciar)
+// @version      0.4.9
 // @description  Re-enables the Wizard functionality for creating/editing REST connections
 // @author       Martin Meciar
 // @license      MIT
