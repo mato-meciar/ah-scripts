@@ -2,7 +2,7 @@
 // @name         AccessHub Navigation Shortcuts (on Steroids)
 // @namespace    https://openuserjs.org/users/mato-meciar
 // @copyright    2024, mato-meciar (https://openuserjs.org/users/mato-meciar)
-// @version      0.10.1
+// @version      0.10.2
 // @description  Don't waste time searching for navigation items in the burger menu
 // @author       Martin Meciar (with help from P.K.)
 // @license      MIT
@@ -36,7 +36,7 @@ const setupNavigation = function() {
 
     let style = document.createElement('style')
     style.setAttribute('type', 'text/css')
-    style.innerHTML = `.nav-item {color: #646464;} .nav-item a {color: ${location.hostname.includes('ibm.idaccesshub.com') ? 'red' : '#646464;'}} .nav-item :hover {background-color: #cccccc;}`
+    style.innerHTML = `.nav-item {color: #646464;} .nav-item a {color: ${(location.hostname.includes('ibm.idaccesshub.com') || location.hostname.includes('ibm-support.saviyntcloud.com')) ? 'red' : '#646464;'}} .nav-item :hover {background-color: #cccccc;}`
     document.body.prepend(style)
     let navigationItems = document.getElementsByClassName('app_name')[0].children
     let space = document.createElement('div')
